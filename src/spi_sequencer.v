@@ -9,6 +9,12 @@ module tt_um_maslovk_lcd_ctrl_top (clk, rst_n, ena, ui_in, uo_out, uio_in, uio_o
 //	output wire sck;
 //	output wire reset;
 
+	wire cs;
+	wire dc;
+	wire reset;
+	wire sck;
+	wire mosi;
+
 	input  wire [7:0] ui_in,    // Dedicated inputs
     	output wire [7:0] uo_out,   // Dedicated outputs
     	input  wire [7:0] uio_in,   // IOs: Input path
