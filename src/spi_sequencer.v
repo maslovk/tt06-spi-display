@@ -1,12 +1,33 @@
-module tt_um_maslovk_lcd_ctrl_top (clk, rst_n, ena, sck, mosi, cs, dc, reset);
+module tt_um_maslovk_lcd_ctrl_top (clk, rst_n, ena, ui_in, uo_out, uio_in, uio_out, uio_oe);
+//module tt_um_maslovk_lcd_ctrl_top (clk, rst_n, ena, sck, mosi, cs, dc, reset);
 	input wire clk;
 	input wire rst_n;
 	input wire ena;
-	output wire mosi;
-	output wire cs;
-	output wire dc;
-	output wire sck;
-	output wire reset;
+//	output wire mosi;
+//	output wire cs;
+//	output wire dc;
+//	output wire sck;
+//	output wire reset;
+
+	input  wire [7:0] ui_in,    // Dedicated inputs
+    	output wire [7:0] uo_out,   // Dedicated outputs
+    	input  wire [7:0] uio_in,   // IOs: Input path
+    	output wire [7:0] uio_out,  // IOs: Output path
+    	output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+
+	assign uo_out[0] = cs;
+	assign uo_out[1] = dc;
+	assign uo_out[2] = reset;
+	assign uo_out[3] = sck;
+	assign uo_out[4] = mosi;
+
+	assign uo_out[5] = 0;
+	assign uo_out[6] = 0;
+	assign uo_out[7] = 0;
+
+	assign uio_out = 8'd0;
+	assign uio_oe = 8'd0;
+	
 	
 	`define COLOR_RED 16'hF800
 	
