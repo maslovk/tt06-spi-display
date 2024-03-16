@@ -1,6 +1,7 @@
 module tt_um_maslovk_lcd_ctrl_top (clk, rst_n, sck, mosi, cs, dc, reset);
 	input wire clk;
 	input wire rst_n;
+	input wire ena;
 	output wire mosi;
 	output wire cs;
 	output wire dc;
